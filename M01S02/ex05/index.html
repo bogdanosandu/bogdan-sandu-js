@@ -17,11 +17,38 @@
   <script src="https://pixellab.ro/js/pixeltab/static/js/pixeltab-top.js"></script>
 </head>
 
-<body>
+<body onload="console.log(prompt('Bine ai venit, cum te cheama?'))">
 
 
+  <h1 onclick="alert('Bogdan')">Hello</h1>
+
+  <button
+    type="button"
+    title="Am fost apasat."
+    onclick="console.log('Am fost apasat.');
+    "
+  >Buton-js 1</button>
 
 
+  <button
+    type="button"
+    title="Butonul a fost apasat."
+    onclick="
+    alert('Butonul a fost apasat.');
+  "
+  >Buton-js 2</button>
+
+
+  <button
+    type="button"
+    title="Ai vrea sa apesi acest buton?"
+    onmouseover="console.log('Ai vrea sa apesi acest buton?');"
+    onclick="console.log(prompt('Care este numele tau?'))"
+  >Buton-js 3</button>
+
+
+  <script src="
+    ./app.js"></script>
   <div
     class="pixeltab-host"
     id="js01-02-05"
