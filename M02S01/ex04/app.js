@@ -6,6 +6,8 @@ class Car {
     this.xPos = xPos;
     this.yPos = yPos;
     this.color = color;
+    this.colorWheelTire = colorWheelTire;
+    this.colorWheelCap = colorWheelCap;
   }
 
   moveTo(x = 0, y = 0) {
@@ -20,6 +22,21 @@ class Car {
     this.wheelBack.style.backgroundColor = color;
   }
 
+  colorateWheelTire() {
+    this.wheelFront.style.backgroundColor = this.colorWheelTire;
+    this.wheelBack.style.backgroundColor = this.colorWheelTire;
+  }
+
+  colorateWheelCap() {
+    this.wheelCapFront.style.backgroundColor = this.colorWheelCap;
+    this.wheelCapBack.style.backgroundColor = this.colorWheelCap;
+  }
+
+  colorateWheels() {
+    this.colorateWheelTire();
+    this.colorateWheelCap();
+  }
+
   turnLightsOn() {
     this.areLightsOn = true;
     this.lightFront.classList.add('light--on');
@@ -28,6 +45,21 @@ class Car {
   turnLightsOff() {
     this.areLightsOn = false;
     this.lightFront.classList.remove('light--on');
+  }
+
+  colorateWheelTire() {
+    this.wheelFront.style.backgroundColor = this.colorWheelTire;
+    this.wheelBack.style.backgroundColor = this.colorWheelTire;
+  }
+
+  colorateWheelCap() {
+    this.wheelCapFront.style.backgroundColor = this.colorWheelCap;
+    this.wheelCapBack.style.backgroundColor = this.colorWheelCap;
+  }
+
+  colorateWheels() {
+    this.colorateWheelTire();
+    this.colorateWheelCap();
   }
 
   toggleHazards() {
@@ -39,7 +71,7 @@ class Car {
         } else {
           this.turnLightsOn();
         }
-      }, 5000);
+      }, 800);
     } else {
       // stop interval
       clearInterval(this.intervalId);
@@ -83,13 +115,13 @@ class Car {
     );
     this.carBody.append(this.lightFront);
 
-    // div.wheel.car__wheel
+    // div.wheel.car__wheel--back
     this.wheelBack = document.createElement('div');
     this.wheelBack.classList.add('wheel', 'car__wheel', 'car__wheel--back');
     this.wheelBack.style.backgroundColor = this.color;
     this.carBody.append(this.wheelBack);
 
-    // div.wheel.car__wheel
+    // div.wheel.car__wheel--front
     this.wheelFront = document.createElement('div');
     this.wheelFront.classList.add('wheel', 'car__wheel', 'car__wheel--front');
     this.wheelFront.style.backgroundColor = this.color;
