@@ -114,7 +114,6 @@ class Car {
       this.areLightsOn === true ? 'light--on' : 'a',
     );
     this.carBody.append(this.lightFront);
-
     // div.wheel.car__wheel--back
     this.wheelBack = document.createElement('div');
     this.wheelBack.classList.add('wheel', 'car__wheel', 'car__wheel--back');
@@ -144,8 +143,6 @@ class Car {
     document.body.append(this.frame);
   }
 }
-
 const audi = new Car(250, 400, 'black');
 audi.render();
-
 // no-op

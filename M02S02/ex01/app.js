@@ -42,3 +42,23 @@ const $navigation = $('<div>', {
 });
 const $container = $('.container');
 $container.after($navigation);
+
+const $anchorElement = $('<a>', {
+  text: 'Primul link',
+  href: '/',
+  class: 'nav-link',
+});
+
+$anchorElement.appendTo('.navigation');
+
+$anchorElement.before(
+  $('<h2>', {
+    text: 'Navigatie',
+  }),
+);
+
+$anchorElement.prepend(
+  $('<sup>', {
+    text: '1',
+  }),
+);

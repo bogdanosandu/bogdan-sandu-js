@@ -31,7 +31,6 @@ const Car = {
     }
 
     this.speed = speed;
-
     this.displaySpeed();
   },
   turnLightsOn: function () {
@@ -49,5 +48,4 @@ audi.wheels = 4;
 audi.speed = 0;
 audi.topSpeed = 260;
 audi.topReveseSpeed = -100;
-
 console.log(audi);
