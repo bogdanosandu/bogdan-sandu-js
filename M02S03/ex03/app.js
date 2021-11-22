@@ -1,6 +1,7 @@
 // extract div.stage from DOM
 const stageElement = document.querySelector('.stage');
 let stageAppearances = 0;
+let stageLine = 0;
 
 // bind event for mouseover
 stageElement.addEventListener('mouseover', () => {
@@ -8,6 +9,7 @@ stageElement.addEventListener('mouseover', () => {
 
   displayMessage(message);
   displayCount(`Mouseul a fost pe scena de ${++stageAppearances}.`);
+  displayParagraph(`Mouse-ul a trecut peste linie de ${++stageLine} ori.`);
 });
 
 // bind event for mouseout
@@ -15,6 +17,7 @@ stageElement.addEventListener('mouseout', () => {
   const message = 'Mouseul nu este pe scena.';
 
   displayMessage(message);
+  displayParagraph(`Mouse-ul a trecut peste linie de ${++stageLine} ori.`);
 });
 
 // extract paragraph from DOM
@@ -52,4 +55,20 @@ function displayCount(message = '') {
   }
 
   counterElement.innerText = message;
+}
+
+let countLine = document.querySelector('.counterLine');
+
+function displayParagraph(message = '') {
+  if (countLine === null) {
+    countLine = document.createElement('p');
+    countLine.classList.add('.counterLine');
+    countLine.innerText = message;
+
+    document.body.append(countLine);
+
+    return;
+  }
+
+  countLine.innerText = message;
 }

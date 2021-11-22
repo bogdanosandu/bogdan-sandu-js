@@ -1,3 +1,3 @@
 $(function () {
-  // code here (similar cu DOMContentLoaded)
+  // code here (similar cu DOMContentLoaded);
 });

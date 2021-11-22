@@ -1,5 +1,6 @@
 // determine initial window width
 let windowWidth = window.innerWidth;
+let windowHeight = window.innerHeight;
 
 // no hoisting:
 const displayMessage = (cssClass, message) => {
@@ -18,13 +19,15 @@ const displayMessage = (cssClass, message) => {
   paragraphElement.innerText = message;
 };
 
-displayMessage('message1', `Latimea ferestrei este ${windowWidth}`);
+displayMessage('message1', `Latimea ferestrei este ${windowWidth} pixeli`);
 displayMessage('message2', 'Fereastra NU si-a schimbat latimea.');
 
 // ignora evenimentele care sunt declansate in interval mai mic de 200ms
 const debouncedResize = debounce(() => {
   const newWidth = window.innerWidth;
-  displayMessage('message1', `Latimea ferestrei este ${newWidth}.`);
+  const newHeight = window.innerHeight;
+  let surface = newWidth + newHeight;
+  displayMessage('message1', `Latimea ferestrei este ${newWidth} pixeli.`);
 
   // is initial window width === to new window width
   if (newWidth !== windowWidth) {
@@ -32,7 +35,11 @@ const debouncedResize = debounce(() => {
   } else {
     displayMessage('message2', 'Fereastra NU si-a schimbat latimea.');
   }
-
+  displayMessage(
+    'message3',
+    `Fereastra are acum suprafata de ${surface} pixeli.`,
+  );
+  windowHeight = newHeight;
   windowWidth = newWidth;
 }, 200);
 

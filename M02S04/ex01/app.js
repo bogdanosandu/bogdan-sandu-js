@@ -1,7 +1,10 @@
 const box = document.querySelector('.box');
+const applyButtonDark = document.getElementById('dark');
+
 // bad selector;
 const applyButton = document.querySelector('button[title="Aplica"]');
 const animateClass = 'animate-class';
+const dark = 'dark-button';
 
 setTimeout(() => {
   box.classList.add(animateClass);
@@ -23,10 +26,21 @@ applyButton.addEventListener('click', (event) => {
   //   applyButton.innerText = 'Aplica';
   // }
 
+  const buttonTitle = document.querySelector('button');
   let buttonText = 'Aplica';
+  buttonTitle.title = 'Aplica';
   if (box.classList.contains(animateClass)) {
     buttonText = 'Elimina';
+    buttonTitle.title = 'Elimina';
   }
 
   applyButton.innerText = buttonText;
+});
+
+applyButtonDark.addEventListener('click', () => {
+  if (!box.classList.contains(dark)) {
+    box.classList.add(dark);
+  } else {
+    box.classList.remove(dark);
+  }
 });
