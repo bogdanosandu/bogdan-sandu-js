@@ -2,6 +2,13 @@
 // import {readFileSync} from 'fs';
 
 // fs = {readFileSync: () => {}, writeFileSync: () => {}}
-const { writeFileSync } = require('fs');
+const fs = require('fs');
 
-writeFileSync('output1.txt', 'Invat node.js', 'utf8');
+fs.writeFileSync('./output1.txt', 'Invaţ node.js');
+
+const data = fs.readFileSync('./output1.txt', 'utf-8');
+
+let today = new Date();
+today = today.toLocaleDateString('ro');
+
+console.log(data + ', azi ' + today + '.');
